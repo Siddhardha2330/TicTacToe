@@ -15,7 +15,7 @@ public class TicTacToeGame {
     private Queue<Integer> playerXMoves; 
     private Queue<Integer> playerOMoves;
 
-    // HashMap to map user input (1-9) to board positions
+    
     private Map<Integer, int[]> positionMap;
 
     public TicTacToeGame() {
