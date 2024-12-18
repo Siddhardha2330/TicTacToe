@@ -95,7 +95,7 @@ public class TicTacToeGame {
 
         
         if (currentPlayerMoves.size() == 3) {
-            int oldestInput = currentPlayerMoves.peek(); // Get the oldest move
+            int oldestInput = currentPlayerMoves.peek(); 
             System.out.println("Your next move will remove your oldest move (" + oldestInput + ").");
         }
     }
