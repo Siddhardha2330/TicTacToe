@@ -79,11 +79,13 @@ public class TicTacToeGame {
                 board.printBoard();
                 System.out.println("Player " + currentPlayer.getSymbol() + " wins!");
                 playing = false;
-            } else if (board.isFull()) {
-                board.printBoard();
-                System.out.println("The game is a draw!");
-                playing = false;
-            } else {
+            } 
+                //else if (board.isFull()) {
+            //     board.printBoard();
+            //     System.out.println("The game is a draw!");
+            //     playing = false;
+            // }
+            else {
             
                 currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
             }
