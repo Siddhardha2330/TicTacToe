@@ -53,14 +53,14 @@ public class Board {
                (board.get(0).get(2) == player && board.get(1).get(1) == player && board.get(2).get(0) == player);
     }
 
-    public boolean isFull() {
-        for (List<Character> row : board) {
-            for (char cell : row) {
-                if (cell == ' ') {
-                    return false; 
-                }
-            }
-        }
-        return true; 
-    }
+    // public boolean isFull() {
+    //     for (List<Character> row : board) {
+    //         for (char cell : row) {
+    //             if (cell == ' ') {
+    //                 return false; 
+    //             }
+    //         }
+    //     }
+    //     return true; 
+    // }
 }
