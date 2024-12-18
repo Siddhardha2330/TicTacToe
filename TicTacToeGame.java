@@ -11,8 +11,8 @@ public class TicTacToeGame {
     private Player playerO;
     private Player currentPlayer;
 
-    // Circular Queues to track the last 3 moves
-    private Queue<Integer> playerXMoves; // Store user inputs (1-9)
+    
+    private Queue<Integer> playerXMoves; 
     private Queue<Integer> playerOMoves;
 
     // HashMap to map user input (1-9) to board positions
@@ -50,13 +50,13 @@ public class TicTacToeGame {
         while (playing) {
             board.printBoard();
 
-            // Notify the user if they already have 3 moves in the queue
+            
             notifyNextRemoval();
 
             System.out.println("Player " + currentPlayer.getSymbol() + ", enter your move (1-9): ");
             int input = scanner.nextInt();
 
-            // Validate input
+         
             if (!positionMap.containsKey(input)) {
                 System.out.println("Invalid input. Please enter a number between 1 and 9.");
                 continue;
@@ -66,16 +66,15 @@ public class TicTacToeGame {
             int row = position[0];
             int col = position[1];
 
-            // Place the move
+      
             if (!board.placeMove(row, col, currentPlayer.getSymbol())) {
                 System.out.println("This move is not valid. Try again.");
                 continue;
             }
 
-            // Update moves
             updatePlayerMoves(input, row, col);
 
-            // Check for win or draw
+           
             if (board.checkWin(currentPlayer.getSymbol())) {
                 board.printBoard();
                 System.out.println("Player " + currentPlayer.getSymbol() + " wins!");
@@ -85,7 +84,7 @@ public class TicTacToeGame {
                 System.out.println("The game is a draw!");
                 playing = false;
             } else {
-                // Switch players
+            
                 currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
             }
         }
@@ -94,7 +93,7 @@ public class TicTacToeGame {
     private void notifyNextRemoval() {
         Queue<Integer> currentPlayerMoves = (currentPlayer == playerX) ? playerXMoves : playerOMoves;
 
-        // Notify the user if their move queue already has 3 elements
+        
         if (currentPlayerMoves.size() == 3) {
             int oldestInput = currentPlayerMoves.peek(); // Get the oldest move
             System.out.println("Note: Your next move will remove your oldest move (" + oldestInput + ").");
@@ -104,12 +103,12 @@ public class TicTacToeGame {
     private void updatePlayerMoves(int input, int row, int col) {
         Queue<Integer> currentPlayerMoves = (currentPlayer == playerX) ? playerXMoves : playerOMoves;
 
-        currentPlayerMoves.offer(input); // Add the new move
+        currentPlayerMoves.offer(input); 
 
-        // If the queue exceeds 3 moves, remove the oldest move
+        
         if (currentPlayerMoves.size() > 3) {
-            int oldestInput = currentPlayerMoves.poll(); // Remove the oldest move
-            int[] oldestPosition = positionMap.get(oldestInput); // Get the position
+            int oldestInput = currentPlayerMoves.poll(); 
+            int[] oldestPosition = positionMap.get(oldestInput); 
             board.clearMove(oldestPosition[0], oldestPosition[1]);
         }
     }
