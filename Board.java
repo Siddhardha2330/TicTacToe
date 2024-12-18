@@ -41,11 +41,11 @@ public class Board {
     }
 
     public boolean checkWin(char player) {
-        // Check rows and columns
+    
         for (int i = 0; i < 3; i++) {
             if ((board.get(i).get(0) == player && board.get(i).get(1) == player && board.get(i).get(2) == player) ||
                 (board.get(0).get(i) == player && board.get(1).get(i) == player && board.get(2).get(i) == player)) {
-                return true; // Win found
+                return true;
             }
         }
        
